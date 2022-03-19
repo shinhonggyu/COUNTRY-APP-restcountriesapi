@@ -35,6 +35,11 @@ $max-width: 1040px;
   font-family: $font-family;
 }
 
+.container {
+  max-width: $max-width;
+  margin: auto;
+}
+
 // typography
 
 h1 {

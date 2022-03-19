@@ -1,0 +1,23 @@
+@import "../../styles/base";
+
+.search-box {
+  background-color: $grey;
+  border-radius: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 1rem 3rem;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+
+    .search-input {
+      font-size: 2.5rem;
+      font-family: $font-family;
+    }
+
+    .search-icon {
+      font-size: 4rem;
+    }
+  }
+}

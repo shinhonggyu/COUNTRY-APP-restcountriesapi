@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Country from "./pages/Country/Country";
-import { createTheme } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/styles";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/styles";
 import "./styles/_base.scss";
 
 const theme = createTheme({
