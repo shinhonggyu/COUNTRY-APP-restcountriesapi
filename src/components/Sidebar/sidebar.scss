@@ -1,0 +1,56 @@
+@import "../../styles/base";
+
+.sidebar__drawer {
+  > .MuiPaper-root {
+    min-width: 300px;
+    padding-top: 2.5rem;
+    padding-right: 5rem;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    > .closeIcon {
+      font-size: 5rem;
+      color: $black;
+      cursor: pointer;
+    }
+
+    > .sidebar__navigation {
+      margin-top: 2.5rem;
+      padding-right: 1rem;
+
+      > h2 {
+        text-align: right;
+      }
+
+      > ul {
+        margin-top: 8rem;
+        li {
+          margin-bottom: 5rem;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          > .sidebar__color-box {
+            width: 80px;
+            height: 50px;
+            margin-left: 2rem;
+            background-color: $primary;
+
+            &.blue {
+              background-color: $primary;
+            }
+            &.green {
+              background-color: #23f0dc;
+            }
+            &.red {
+              background-color: #f1622f;
+            }
+          }
+        }
+      }
+    }
+  }
+}

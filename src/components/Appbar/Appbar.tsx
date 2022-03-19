@@ -3,7 +3,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import Search from "../Search/Search";
 
-const Appbar = () => {
+interface AppbarProps {
+  onClick: Function;
+}
+
+const Appbar = ({ onClick }: AppbarProps) => {
   return (
     <div className="appbar">
       <div className="appbar__content container">
@@ -18,10 +22,10 @@ const Appbar = () => {
         </div>
         <div className="appbar__content-right">
           <div className="appbar__content-cart">
-            <ShoppingCartIcon className="cartIcon" />
+            <ShoppingCartIcon className="cartIcon cursor-pointer" />
             <div className="appbar__content-cart-counter">10</div>
           </div>
-          <MenuIcon className="menuIcon" />
+          <MenuIcon onClick={() => onClick(true)} className="cursor-pointer" />
         </div>
       </div>
     </div>

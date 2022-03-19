@@ -50,3 +50,8 @@ h2 {
   font-family: $font-family;
   font-weight: weight(regular);
 }
+
+// general style override
+.cursor-pointer {
+  cursor: pointer;
+}
