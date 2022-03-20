@@ -2,12 +2,14 @@ import "./appbar.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import Search from "../Search/Search";
+import { memo } from "react";
 
 interface AppbarProps {
   onClick: Function;
 }
 
 const Appbar = ({ onClick }: AppbarProps) => {
+  console.log("Appbar 렌더링");
   return (
     <div className="appbar">
       <div className="appbar__content container">
@@ -32,4 +34,4 @@ const Appbar = ({ onClick }: AppbarProps) => {
   );
 };
 
-export default Appbar;
+export default memo(Appbar);
