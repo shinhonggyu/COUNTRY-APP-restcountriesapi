@@ -1,5 +1,5 @@
 import {
-  FETCH_COUNTRIES,
+  FETCH_COUNTRIES_LOADING,
   FETCH_COUNTRIES_SUCCESS,
   FETCH_COUNTRIES_FAILURE,
   CountryReducerState,
@@ -16,7 +16,7 @@ export default function countryReducer(
   action: any
 ) {
   switch (action.type) {
-    case FETCH_COUNTRIES:
+    case FETCH_COUNTRIES_LOADING:
       return {
         ...state,
         isLoading: true,

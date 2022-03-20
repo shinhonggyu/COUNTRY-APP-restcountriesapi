@@ -1,13 +1,15 @@
+import { Dispatch } from "redux";
+import axios from "axios";
 import {
-  FETCH_COUNTRIES,
+  FETCH_COUNTRIES_LOADING,
   FETCH_COUNTRIES_SUCCESS,
   FETCH_COUNTRIES_FAILURE,
   CountryActions,
 } from "../../types";
 
-export function fetchAllCountries(): CountryActions {
+export function fetchAllCountriesLoading(): CountryActions {
   return {
-    type: FETCH_COUNTRIES,
+    type: FETCH_COUNTRIES_LOADING,
   };
 }
 
@@ -24,3 +26,14 @@ export function fetchAllCountriesFailure(error: string): CountryActions {
     payload: error,
   };
 }
+
+// create thunk for fetch all countries
+export const fetchAllCountries = () => async (dispatch: Dispatch) => {
+  dispatch(fetchAllCountriesLoading());
+  try {
+    const { data } = await axios.get("https://restcountries.com/v3.1/all");
+    dispatch(fetchAllCountriesSuccess(data));
+  } catch (error: any) {
+    dispatch(fetchAllCountriesFailure(error.message));
+  }
+};
