@@ -7,6 +7,7 @@ import {
   CountryActions,
 } from "../../types";
 import { v4 as uuid } from "uuid";
+import { Country } from "../../types";
 
 export function fetchAllCountriesLoading(): CountryActions {
   return {
@@ -14,7 +15,7 @@ export function fetchAllCountriesLoading(): CountryActions {
   };
 }
 
-export function fetchAllCountriesSuccess(countries: []): CountryActions {
+export function fetchAllCountriesSuccess(countries: Country[]): CountryActions {
   return {
     type: FETCH_COUNTRIES_SUCCESS,
     payload: countries,
@@ -33,7 +34,7 @@ export const fetchAllCountries = () => async (dispatch: Dispatch) => {
   dispatch(fetchAllCountriesLoading());
   try {
     const { data } = await axios.get("https://restcountries.com/v3.1/all");
-    const mapData = data.map((item: any) => {
+    const mapData: Country[] = data.map((item: any) => {
       return {
         id: uuid(),
         name: item.name.common,

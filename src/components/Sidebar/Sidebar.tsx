@@ -9,7 +9,6 @@ interface SidebarProps {
 
 const Sidebar = ({ onClick, drawerState }: SidebarProps) => {
   const onDrawerClose = () => {
-    console.log("닫힘");
     onClick(!drawerState);
   };
 

@@ -1,22 +1,38 @@
 import "./countrycard.scss";
 import Button from "@mui/material/Button";
-import { memo } from "react";
+import React, { memo } from "react";
+import { Country } from "../../types";
+import { useDispatch } from "react-redux";
+import { addCountryToCart } from "../../redux/actions";
+import { Dispatch } from "redux";
 
-type ContryCardProps = {
-  flag: string;
-  name: string;
-  region: string;
+type CountryCardProps = {
+  country: Country;
 };
 
-const CountryCard = ({ flag, name, region }: ContryCardProps) => {
+const CountryCard = ({ country }: CountryCardProps) => {
+  const dispatch: Dispatch = useDispatch();
+
+  const onAddCountyToCart = (country: Country) => {
+    dispatch(addCountryToCart(country));
+  };
+
   return (
     <div className="country-card">
       <div className="country-card__wrapper">
-        <img src={flag} alt={name} />
-        <h2 className="country-card__name">{name}</h2>
-        <h2 className="country-card__region">{region}</h2>
+        <img src={country.flag} alt={country.name} />
+        <h2 className="country-card__name">{country.name}</h2>
+        <h2 className="country-card__region">{country.region}</h2>
         <div className="country-card__action">
-          <Button className="btn btn__primary">Add to cart</Button>
+          <Button
+            className="btn btn__primary"
+            onClick={(e: React.MouseEvent<HTMLOrSVGElement>) => {
+              e.stopPropagation();
+              onAddCountyToCart(country);
+            }}
+          >
+            Add to cart
+          </Button>
         </div>
       </div>
     </div>

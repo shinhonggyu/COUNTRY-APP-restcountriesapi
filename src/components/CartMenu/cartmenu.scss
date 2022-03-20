@@ -1,0 +1,12 @@
+@import "../../styles/base";
+
+.menu__content {
+  &-wrapper {
+    padding: 1.5rem;
+  }
+
+  &-empty {
+    text-align: start;
+    color: $blackLight;
+  }
+}

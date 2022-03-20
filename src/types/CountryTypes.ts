@@ -1,3 +1,5 @@
+import { Country } from "./CartTypes";
+
 // constants
 export const FETCH_COUNTRIES_LOADING = "FETCH_COUNTRIES_LOADING";
 export const FETCH_COUNTRIES_SUCCESS = "FETCH_COUNTRIES_SUCCESS";
@@ -5,7 +7,7 @@ export const FETCH_COUNTRIES_FAILURE = "FETCH_COUNTRIES_FAILURE";
 
 // reducer types
 export type CountryReducerState = {
-  countries: [];
+  countries: Country[];
   isLoading: boolean;
   error: string;
 };
@@ -17,7 +19,7 @@ export type FetchAllCountriesLoadingAction = {
 
 export type FetchAllCountriesSuccessAction = {
   type: typeof FETCH_COUNTRIES_SUCCESS;
-  payload: [];
+  payload: Country[];
 };
 
 export type FetchAllCountriesFailureAction = {
