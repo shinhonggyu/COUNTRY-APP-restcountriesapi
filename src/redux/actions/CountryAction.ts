@@ -6,6 +6,7 @@ import {
   FETCH_COUNTRIES_FAILURE,
   CountryActions,
 } from "../../types";
+import { v4 as uuid } from "uuid";
 
 export function fetchAllCountriesLoading(): CountryActions {
   return {
@@ -32,7 +33,15 @@ export const fetchAllCountries = () => async (dispatch: Dispatch) => {
   dispatch(fetchAllCountriesLoading());
   try {
     const { data } = await axios.get("https://restcountries.com/v3.1/all");
-    dispatch(fetchAllCountriesSuccess(data));
+    const mapData = data.map((item: any) => {
+      return {
+        id: uuid(),
+        name: item.name.common,
+        region: item.region,
+        flag: item.flags.png,
+      };
+    });
+    dispatch(fetchAllCountriesSuccess(mapData));
   } catch (error: any) {
     dispatch(fetchAllCountriesFailure(error.message));
   }

@@ -9,7 +9,6 @@ interface AppbarProps {
 }
 
 const Appbar = ({ onClick }: AppbarProps) => {
-  console.log("Appbar 렌더링");
   return (
     <div className="appbar">
       <div className="appbar__content container">
