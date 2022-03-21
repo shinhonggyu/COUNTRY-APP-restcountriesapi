@@ -3,6 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import { removeCountryFromCart } from "../../redux/actions";
+import React from "react";
 
 interface CartItemProps {
   id: string;
@@ -13,7 +14,11 @@ interface CartItemProps {
 const CartItem = ({ id, flag, name }: CartItemProps) => {
   const dispatch: Dispatch = useDispatch();
 
-  const onDeleteCartItem = (id: string) => {
+  const onDeleteCartItem = (
+    id: string,
+    e: React.MouseEvent<HTMLOrSVGElement>
+  ) => {
+    e.stopPropagation();
     dispatch(removeCountryFromCart(id));
   };
 
@@ -26,7 +31,7 @@ const CartItem = ({ id, flag, name }: CartItemProps) => {
         <div className="cart__content-item-right-name">{name}</div>
         <DeleteIcon
           className="cursor-pointer"
-          onClick={() => onDeleteCartItem(id)}
+          onClick={(e) => onDeleteCartItem(id, e)}
         />
       </div>
     </div>

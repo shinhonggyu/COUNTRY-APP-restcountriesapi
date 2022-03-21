@@ -24,6 +24,12 @@ const Appbar = ({ onClick }: AppbarProps) => {
     setOpen(false);
   };
 
+  const clickCartIcon = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+    e.stopPropagation();
+    console.log("카트클릭");
+    setOpen(!open);
+  };
+
   return (
     <div className="appbar">
       <div className="appbar__content container">
@@ -40,7 +46,7 @@ const Appbar = ({ onClick }: AppbarProps) => {
           <div className="appbar__content-cart">
             <ShoppingCartIcon
               className="cartIcon cursor-pointer"
-              onClick={() => setOpen(!open)}
+              onClick={clickCartIcon}
             />
             <div className="appbar__content-cart-counter">{cart.length}</div>
             {/* Menu Component */}
